@@ -18,3 +18,4 @@
   - go to display_current_events() funcion in cal.py and change the calendar ids in calendar list to your ones(primary will be your first calendar, then you have to add ids for other calendars if you want)
 - `fm` is an fzf file browser for quick navigation (select `.` to quit/land in the current directory)
   - left and right (or enter) arrow for back, forward navigation
+- `LBSync.sh` to upload dotfiles to github
