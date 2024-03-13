@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-output_chars=44
+output_chars=41
 
 transformStr() {
   local input_string="$1"
@@ -21,15 +21,7 @@ if [[ "$1" == "output" ]];then
 
     # Dont give terminal output when window active, or no command, or in neovim
     if [[ $(xprop -id $(xdotool getactivewindow) | grep WM_CLASS | cut -d '"' -f4) == drop$lastsess ]] || [[ "$output" == *">>"* ]] || [[ "$output" == *"{.}"* ]]|| [[ "$output" == *"written"* ]]|| [[ "$output" == *"   ["*"/"*"]" ]] || [[ "$output" == *","*"-"*"All" ]]; then
-        # printf ' %.0s' $(seq 1 $((output_chars+3))); echo
-        todo=$(grep '-' ~/notes/todo.md | head -1 | awk '{$1=$1};1')
-
-        #Give next exam's date if todo.md'd first bullet is blank
-        if [[ "$todo" != "- "* ]]; then
-            python3 /home/sahaj/scripts/givedate.py
-        else
-            transformStr "$todo" $output_chars
-        fi
+        python3 /home/sahaj/scripts/givedate.py
     else
         transformStr "$output" $output_chars
     fi

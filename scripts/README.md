@@ -4,7 +4,7 @@
   - `nscratch.sh output` does 3 things:
     - if a command(not neovim) running in terminal AND the terminal is hidden, give its output. if not:
     - display my next exam's date (`givedate.py`) if `~/notes/todo.md` first bullet point is empty
-    - display first todo.md bullet point if not empty
+    - ~display first todo.md bullet point if not empty~
 
 - `bmon.sh` battery monitor
   - display output according to battery (pango markup)

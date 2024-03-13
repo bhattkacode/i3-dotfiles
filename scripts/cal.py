@@ -40,6 +40,7 @@ def get_current_event(calendar_id):
 
 
 def display_current_events():
+    padding = 6
     blue = "#74c7ec"
     calendars = ['primary', '34624bc46c7437a816658294c1682e1c5de1717e4a2693e15f2af4203a4b7b0c@group.calendar.google.com', '0fb1c9c7105249bf1a66a20120c9184cd7a1d51d79fd3411c6c0917fa5eb3864@group.calendar.google.com', 'family14964246631284460147@group.calendar.google.com']
 
@@ -59,7 +60,7 @@ def display_current_events():
             end_time = end_time.astimezone(local_timezone).strftime('%I:%M')
 
             summary = current_event[0]['summary']
-            print(f"<big><span color='{blue}'>󰃰 </span><span font='Aquire'>{summary}</span> [<span color='{blue}'>{start_time}</span>-<span color='{blue}'>{end_time}</span>]</big>               ")
+            print(f"<big><span color='{blue}'>󰃰 </span><span font='Aquire'>{summary}</span> [<span color='{blue}'>{start_time}</span>-<span color='{blue}'>{end_time}</span>]</big>" + " " * padding)
             return  # remove if more than one event
-    print(f"<big><span color='{blue}'>󰃰 </span>Nothing to do rn</big>               ")
+    print(f"<big><span color='{blue}'>󰃰 </span>Nothing to do rn</big>"+" " * padding)
 display_current_events()

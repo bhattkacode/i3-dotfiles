@@ -4,6 +4,12 @@ color=#45475a
 separator=false
 separator_block_width=10
 
+[todo]
+color=#f9e2af
+command= ~/scripts/todoOutput.sh
+interval=1
+
+
 [timeTable]
 markup=pango
 color=#fab387
