@@ -61,4 +61,4 @@ if [[ $1 != "cp" ]];then
     fi
 fi
 
-
+cd
