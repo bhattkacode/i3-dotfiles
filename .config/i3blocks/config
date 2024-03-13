@@ -1,0 +1,58 @@
+full_text=•
+align=center
+color=#45475a
+separator=false
+separator_block_width=10
+
+[timeTable]
+markup=pango
+color=#fab387
+command=python3 /home/sahaj/scripts/cal.py
+interval=120
+align=left
+
+[time]
+markup=pango
+color=#eba0ac
+command=date '+<big> <span color="#74c7ec">%I:%M <span font="Aquire">%p</span> </span><span font="Aquire" color="#fab387">%a %b </span>%d/%m </big>'
+interval=5
+
+[scratchpadtmux]
+color=#f9e2af
+markup=pango
+command= ~/scripts/nscratch.sh output
+interval=1
+align=right
+
+
+[volume]
+color=#eba0ac
+command=sym='󰕾'; [[ $(pamixer --get-volume-human) == muted ]] && sym='󰝟'; printf "$sym $(pamixer --get-volume)\n"; [[ -z "${BLOCK_BUTTON}" ]] || pavucontrol
+#command=sym='󰕾'; [[ $(pamixer --get-volume-human) == muted ]] && sym='󰝟'; printf "$sym $(pamixer --get-volume)\n"
+signal=10
+interval=1
+
+[separator]
+
+[memory]
+color=#f9e2af
+command=/usr/bin/env bash -c "total=\$(grep -e '^MemTotal' -m 1 /proc/meminfo | awk '{print \$2}'); available=\$(grep -e '^MemAvailable' -m 1 /proc/meminfo | awk '{print \$2}'); memusage=\$((100 - (available * 100 / total))); printf '%02d\n' \$memusage"
+label=󰍛 
+interval=10
+
+[separator]
+
+[battery]
+markup=pango
+command= ~/scripts/bmon.sh
+interval=1
+
+[separator]
+
+[bluetooth]
+color=#74c7ec
+markup=pango
+command= ~/scripts/blu-notif
+interval=1
+
+[separator]
