@@ -2,6 +2,7 @@
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
+alias nl='notesync && LBsync.sh'
 alias nvn='cd ~/notes && nv -c "Telescope find_files"'
 alias notesync='cd ~/notes && git add . && git commit -m "vault backup" && git push'
 alias unimatrix='unimatrix -n -s 96 -l o'
@@ -138,7 +139,7 @@ stopwatch() {
 
 export TERMINAL='st' 
 
-source /usr/share/fzf/completion.bash
+# source /usr/share/fzf/completion.bash
 source /usr/share/fzf/key-bindings.bash
 export SUDO_EDITOR="nvim"
 export EDITOR="nvim"

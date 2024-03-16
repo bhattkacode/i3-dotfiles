@@ -3,21 +3,21 @@ require("sahaj.remap")
 -- Lazy initialization
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
-    vim.fn.system({
-        "git",
-        "clone",
-        "--filter=blob:none",
-        "https://github.com/folke/lazy.nvim.git",
-        "--branch=stable", -- latest stable release
-        lazypath,
-    })
+	vim.fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		"--branch=stable", -- latest stable release
+		lazypath,
+	})
 end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-    { import = "sahaj.plugins" }, }, {
-    checker = { enabled = true, notify = false, },
-    change_detection = { notify = false, },
+	{ import = "sahaj.plugins" }, }, {
+	checker = { enabled = true, notify = false, },
+	change_detection = { notify = false, },
 })
 codeiumString = " {.}%3{codeium#GetStatusString()}"
 
@@ -77,7 +77,7 @@ vim.g.codeium_enabled = false
 
 -- Transparent 󰈸󰈸
 function Transparent()
-    vim.cmd [[colorscheme catppuccin
+	vim.cmd [[colorscheme catppuccin
     hi Normal guibg=none ctermbg=none
     hi NormalFloat guibg=none ctermbg=none
     hi LineNr guibg=none ctermbg=none
@@ -116,30 +116,32 @@ Transparent()
 
 --Remove Transparency
 function Opaque()
-    vim.cmd [[colorscheme catppuccin
+	vim.cmd [[colorscheme catppuccin
     hi LocalHighlight guibg=#2a2b3c guifg=none]]
-    --Telescope Colours
-    local colors = require("catppuccin.palettes").get_palette()
-    local TelescopeColor = {
-        TelescopeMatching = { fg = colors.flamingo },
-        TelescopeSelection = { fg = colors.text, bg = colors.surface0, bold = true },
+	--Telescope Colours
+	local colors = require("catppuccin.palettes").get_palette()
+	local TelescopeColor = {
+		TelescopeMatching = { fg = colors.flamingo },
+		TelescopeSelection = { fg = colors.text, bg = colors.surface0, bold = true },
 
-        TelescopePromptPrefix = { bg = colors.surface0 },
-        TelescopePromptNormal = { bg = colors.surface0 },
-        TelescopeResultsNormal = { bg = colors.mantle },
-        TelescopePreviewNormal = { bg = colors.mantle },
-        TelescopePromptBorder = { bg = colors.surface0, fg = colors.surface0 },
-        TelescopeResultsBorder = { bg = colors.mantle, fg = colors.mantle },
-        TelescopePreviewBorder = { bg = colors.mantle, fg = colors.mantle },
-        TelescopePromptTitle = { bg = colors.pink, fg = colors.mantle },
-        TelescopeResultsTitle = { fg = colors.mantle },
-        TelescopePreviewTitle = { bg = colors.green, fg = colors.mantle },
-    }
+		TelescopePromptPrefix = { bg = colors.surface0 },
+		TelescopePromptNormal = { bg = colors.surface0 },
+		TelescopeResultsNormal = { bg = colors.mantle },
+		TelescopePreviewNormal = { bg = colors.mantle },
+		TelescopePromptBorder = { bg = colors.surface0, fg = colors.surface0 },
+		TelescopeResultsBorder = { bg = colors.mantle, fg = colors.mantle },
+		TelescopePreviewBorder = { bg = colors.mantle, fg = colors.mantle },
+		TelescopePromptTitle = { bg = colors.pink, fg = colors.mantle },
+		TelescopeResultsTitle = { fg = colors.mantle },
+		TelescopePreviewTitle = { bg = colors.green, fg = colors.mantle },
+	}
 
-    for hl, col in pairs(TelescopeColor) do
-        vim.api.nvim_set_hl(0, hl, col)
-    end
+	for hl, col in pairs(TelescopeColor) do
+		vim.api.nvim_set_hl(0, hl, col)
+	end
 end
+
+vim.cmd [[let g:buftabline_show = 1]]
 
 vim.opt.conceallevel = 1
 
@@ -190,13 +192,13 @@ vim.opt.foldenable = true
 
 local cmp_enabled = true
 vim.api.nvim_create_user_command("ToggleAutoComplete", function()
-    if cmp_enabled then
-        require("cmp").setup.buffer({ enabled = false })
-        cmp_enabled = false
-    else
-        require("cmp").setup.buffer({ enabled = true })
-        cmp_enabled = true
-    end
+	if cmp_enabled then
+		require("cmp").setup.buffer({ enabled = false })
+		cmp_enabled = false
+	else
+		require("cmp").setup.buffer({ enabled = true })
+		cmp_enabled = true
+	end
 end, {})
 
 -- local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })

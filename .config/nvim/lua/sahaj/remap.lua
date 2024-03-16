@@ -2,7 +2,13 @@ vim.g.mapleader = " "
 
 local keymap = vim.keymap
 
-keymap.set("n", "<leader>pv", ":Ex<CR>")
+
+-- keymap.set("n", "<leader>bt", ":let g:buftabline_show= !g:buftabline_show|call buftabline#update(0)<CR>",
+--     { silent = true })
+-- keymap.set("n", "<leader>bd", ":bdelete<CR>", { silent = true })
+keymap.set("n", "H", ":bprev<CR>", { silent = true })
+keymap.set("n", "L", ":bnext<CR>", { silent = true })
+keymap.set("n", "<leader>a", "") -- Alternate file
 
 keymap.set("i", "<C-b>", "<esc>pi")
 
@@ -59,8 +65,6 @@ keymap.set("n", "g.", '/\\V\\C<C-r>"<CR>cgn<C-a><Esc>')
 
 -- keymap.set("n", "<leader>t", ":tabnew<CR>")
 -- keymap.set("n", "<leader>w", ":tabclose<CR>")
-keymap.set("n", "H", ":tabprevious<CR>")
-keymap.set("n", "L", ":tabnext<CR>")
 
 -- keymap.set("n", "<CR>", ":bnext<CR>")
 -- keymap.set("n", "<leader><CR>", ":bprev<CR>")
@@ -146,7 +150,7 @@ keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<cr>", { desc = "Show cu
 keymap.set("n", "<leader>ft", "<cmd>Telescope<cr>", { desc = "Open Telescope options" })
 keymap.set("n", "<leader>fr", "<cmd>Telescope lsp_references<cr>", { desc = "Find lsp references" })
 
-keymap.set('n', '<leader>ps', function()
+keymap.set('n', '<leader>fps', function()
         require("telescope.builtin").grep_string({ search = vim.fn.input("Grep > ") });
     end,
     { desc = "Find string, then filter with path" })

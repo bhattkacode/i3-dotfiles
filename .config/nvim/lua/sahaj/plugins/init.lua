@@ -1,7 +1,14 @@
 return {
-    {'xiyaowong/telescope-emoji.nvim', cmd="Telescope emoji", opts={}, config=function ()
-        require("telescope").load_extension("emoji")
-    end},
+    -- { "ap/vim-buftabline" },
+    { 'wakatime/vim-wakatime',      lazy = false },
+    {
+        'xiyaowong/telescope-emoji.nvim',
+        cmd = "Telescope emoji",
+        opts = {},
+        config = function()
+            require("telescope").load_extension("emoji")
+        end
+    },
     -- {"ziontee113/icon-picker.nvim", cmd={"IconPickerInsert", "IconPickerYank", "IconPickerNormal"}, opts={}},
     { "dhruvasagar/vim-table-mode", ft = "markdown" },
     { "jmbuhr/otter.nvim",          ft = "markdown" },
@@ -30,7 +37,7 @@ return {
             local apm = require("vim-apm")
 
             apm:setup({})
-            vim.keymap.set("n", "<leader>apm", function() apm:toggle_monitor() end)
+            vim.keymap.set("n", "<leader>pm", function() apm:toggle_monitor() end)
         end
 
     },
@@ -91,7 +98,7 @@ return {
         "nvim-neo-tree/neo-tree.nvim",
         cmd = "NeoTree",
         keys = {
-            { "<leader>b", "<cmd>Neotree toggle<cr>", desc = "NeoTree" },
+            { "<leader>t", "<cmd>Neotree toggle<cr>", desc = "NeoTree" },
         },
         opts = {},
         dependencies = {

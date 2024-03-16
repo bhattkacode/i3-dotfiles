@@ -2,15 +2,32 @@ return {
     "nvim-telescope/telescope.nvim",
 
     dependencies = { 'nvim-lua/plenary.nvim',
-        { 'nvim-telescope/telescope-fzf-native.nvim',
+        {
+            'nvim-telescope/telescope-fzf-native.nvim',
             build =
-            'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build', }, },
+            'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build',
+        }, },
     module = 'telescope',
 
     config = function()
         -- import telescope plugin safely
         local telescope = require("telescope")
         local builtin = require('telescope.builtin')
+
+        local select_one_or_multi = function(prompt_bufnr)
+            local picker = require('telescope.actions.state').get_current_picker(prompt_bufnr)
+            local multi = picker:get_multi_selection()
+            if not vim.tbl_isempty(multi) then
+                require('telescope.actions').close(prompt_bufnr)
+                for _, j in pairs(multi) do
+                    if j.path ~= nil then
+                        vim.cmd(string.format('%s %s', 'edit', j.path))
+                    end
+                end
+            else
+                require('telescope.actions').select_default(prompt_bufnr)
+            end
+        end
 
         telescope.setup {
             extensions = {
@@ -50,11 +67,11 @@ return {
                 buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
                 mappings = {
                     n = { ["q"] = require("telescope.actions").close },
+                    i = { ['<CR>'] = select_one_or_multi },
                 },
             },
-        }
-        -- To get fzf loaded and working with telescope, you need to call
-        -- load_extension, somewhere after setup function:
-        telescope.load_extension('fzf')
+            -- To get fzf loaded and working with telescope, you need to call
+            -- load_extension, somewhere after setup function:
+            telescope.load_extension('fzf') }
     end,
 }

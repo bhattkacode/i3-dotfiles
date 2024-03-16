@@ -377,7 +377,7 @@ exec_always --no-startup-id "sh -c 'sleep 1; exec pkill -RTMIN+10 i3blocks'"
 exec --no-startup-id thorium-browser
 # exec nvim ~/.config/nvim/init.lua +q
 # exec sleep 15;~/scripts/nscratch.sh 1 && ~/scripts/nscratch.sh 1 ;sleep 2;tmux send-keys -t drop1 "nvim ~/notes/todo.md -c 'norm j<C-d>' -c 'Telescope oldfiles' -c 'q" Enter
-exec sleep 20;~/scripts/nscratch.sh 1 && ~/scripts/nscratch.sh 1 ;sleep 2;tmux send-keys -t drop1 "nvim ~/notes/todo.md +'norm 5j2k' +'Telescope oldfiles'" Enter && sleep 35;tmux send-keys -t drop1 "h" Escape "h" Escape ":q" Enter "clear" Enter && sleep 3;tmux send-keys -t drop1 "clear" Enter
+exec sleep 20;~/scripts/nscratch.sh 1 && ~/scripts/nscratch.sh 1 ;sleep 2;tmux send-keys -t drop1 "nvim ~/notes/todo.md +'norm 5j2k' +'Telescope oldfiles'" Enter && sleep 40;tmux send-keys -t drop1 "h" Escape "h" Escape ":q" Enter "clear" Enter && sleep 3;tmux send-keys -t drop1 "clear" Enter
 # exec --no-startup-id i3-msg 'workspace 2; exec /usr/bin/firefox; workspace 1'
 # exec --no-startup-id easyeffects --gapplication-service
 exec --no-startup-id blugon
