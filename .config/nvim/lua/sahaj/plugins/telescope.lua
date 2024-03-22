@@ -31,6 +31,22 @@ return {
 
         telescope.setup {
             extensions = {
+                ['ui-select'] = {
+                    require('telescope.themes').get_dropdown(),
+                },
+                file_browser = {
+                    -- theme = "ivy",
+                    -- -- disables netrw and use telescope-file-browser in its place
+                    -- hijack_netrw = true,
+                    -- mappings = {
+                    --     ["i"] = {
+                    --         -- your custom insert mode mappings
+                    --     },
+                    --     ["n"] = {
+                    --         -- your custom normal mode mappings
+                    --     },
+                    -- },
+                },
                 fzf = {
                     fuzzy = true,                   -- false will only do exact matching
                     override_generic_sorter = true, -- override the generic sorter

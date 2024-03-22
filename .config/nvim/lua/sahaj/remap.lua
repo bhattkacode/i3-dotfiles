@@ -8,7 +8,7 @@ local keymap = vim.keymap
 -- keymap.set("n", "<leader>bd", ":bdelete<CR>", { silent = true })
 keymap.set("n", "H", ":bprev<CR>", { silent = true })
 keymap.set("n", "L", ":bnext<CR>", { silent = true })
-keymap.set("n", "<leader>a", "") -- Alternate file
+
 
 keymap.set("i", "<C-b>", "<esc>pi")
 
@@ -45,14 +45,14 @@ keymap.set("n", "J", "mzJ`z")
 keymap.set("n", "<leader>n", "*''cgn")
 keymap.set("v", "<leader>n", "\"hy/<C-r>h<CR>Ncgn")
 
--- keymap.set("n", "<C-d>", "<C-d>zz")
--- keymap.set("n", "<C-u>", "<C-u>zz")
+keymap.set("n", "<C-d>", "<C-d>zz")
+keymap.set("n", "<C-u>", "<C-u>zz")
 keymap.set("n", "n", "nzzzv")
 keymap.set("n", "N", "Nzzzv")
 
 -- keymap.set("n", "<leader>o", "o<ESC>")
 -- keymap.set("n", "<leader>O", "o<ESC>")
-keymap.set("i", "<C-o>", "<ESC>o")
+-- keymap.set("i", "<C-o>", "<ESC>o")
 keymap.set("n", "<C-o>", "<ESC>o<ESC>")
 
 keymap.set("n", "<C-E>", "<C-O>", { noremap = true })
@@ -128,8 +128,8 @@ keymap.set("n", "<leader>u", ":UndotreeToggle<CR>")
 keymap.set("n", "gd", ":lua vim.lsp.buf.definition()<CR>")
 -- keymap.set("n", "H", ":lua vim.lsp.buf.hover()<CR>")
 -- keymap.set("i", "<C-h>", ":lua vim.lsp.buf.signature_help()<CR>")
-keymap.set("n", "[d", ":lua vim.lsp.diagnostic.goto_next()<CR>")
-keymap.set("n", "]d", ":lua vim.lsp.diagnostic.goto_prev()<CR>")
+keymap.set("n", "]d", ":lua vim.diagnostic.goto_next()<CR>")
+keymap.set("n", "[d", ":lua vim.diagnostic.goto_prev()<CR>")
 keymap.set("n", "<leader>vws", ":lua vim.lsp.buf.workspace_symbol()<CR>")
 keymap.set("n", "<leader>o", ":lua vim.diagnostic.open_float()<CR>")
 keymap.set("n", "<leader>ca", ":lua vim.lsp.buf.code_action()<CR>")
@@ -139,6 +139,8 @@ keymap.set("n", "<leader>cmd", ":lua require('cmp').setup.buffer { enabled = fal
 keymap.set("n", "<leader>cme", ":lua require('cmp').setup.buffer { enabled = true }<CR>")
 
 -- telescope
+keymap.set("n", "<leader>fm", "<cmd>Telescope file_browser<cr>", { desc = "File Browser" })
+keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", { desc = "File Browser" })
 keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Fuzzy find files in cwd" })
 keymap.set("n", "<leader>fo", "<cmd>Telescope oldfiles<cr>", { desc = "Fuzzy find recent files" })
 keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>", { desc = "Find string in cwd" })
@@ -161,7 +163,7 @@ keymap.set('n', '<leader>fc', function()
     { desc = "Find files in cwd" })
 
 -- Hop
-keymap.set({ "n", "x" }, "<leader><leader>", ":HopWord<CR>")
+-- keymap.set({ "n", "x" }, "<leader><leader>", ":HopWord<CR>")
 -- keymap.set({ "n", "x" }, "S", "<cmd>HopChar2<CR>")
 -- keymap.set({ "n", "x" }, "s", "<cmd>Pounce<CR>")
 -- keymap.set({ "n", "x" }, "f", "<cmd>HopChar1CurrentLineAC<CR>")
@@ -173,11 +175,11 @@ keymap.set({ "n", "x" }, "<leader><leader>", ":HopWord<CR>")
 -- keymap.set("n", "<leader>8", ":!(st -e sh -c 'python3 %;read e')<CR>", { silent = true })
 vim.cmd [[
 autocmd filetype python nnoremap <leader>9 :w<CR>:!python3 %<CR>
-autocmd filetype python nnoremap <leader>8 :w<CR>:!(st -e sh -c 'python3 %;read e')<CR>
+autocmd filetype python nnoremap <leader>8 :w<CR>:!(st -e sh -c 'python3 %;read e'&)<CR>
 autocmd filetype c nnoremap <leader>9 :w <CR> :!gcc % -o %:r && ./%:r<CR>
-autocmd filetype c nnoremap <leader>8 :w <CR> :!(st -e sh -c 'gcc % -o %:r && ./%:r;read e')<CR>
+autocmd filetype c nnoremap <leader>8 :w <CR> :!(st -e sh -c 'gcc % -o %:r && ./%:r;read e'&)<CR>
 autocmd filetype cpp nnoremap <leader>9 :w <CR> :!g++ % -o %:r && ./%:r<CR>
-autocmd filetype cpp nnoremap <leader>8 :w <CR> :!(st -e sh -c 'g++ % -o %:r && ./%:r;read e')<CR>
+autocmd filetype cpp nnoremap <leader>8 :w <CR> :!(st -e sh -c 'g++ % -o %:r && ./%:r;read e'&)<CR>
 ]]
 -- Function to go to a pattern in a specified direction
 function GotoPattern(pattern, dir)

@@ -1,6 +1,17 @@
 return {
+
+    -- { 'j-hui/fidget.nvim',                         config = function() require('fidget').setup({ window = { winblend = 0 } }) end },
+    {
+        "kawre/leetcode.nvim",
+        build = ":TSUpdate html",
+        lazy = "leetcode.nvim" ~= vim.fn.argv()[1],
+        opts = { arg = "leetcode.nvim" },
+        -- dependencies = { "rcarriga/nvim-notify", },
+    },
+    { "nvim-telescope/telescope-file-browser.nvim" },
+    { 'nvim-telescope/telescope-ui-select.nvim' },
     -- { "ap/vim-buftabline" },
-    { 'wakatime/vim-wakatime',      lazy = false },
+    { 'wakatime/vim-wakatime',                     lazy = false },
     {
         'xiyaowong/telescope-emoji.nvim',
         cmd = "Telescope emoji",
@@ -12,7 +23,7 @@ return {
     -- {"ziontee113/icon-picker.nvim", cmd={"IconPickerInsert", "IconPickerYank", "IconPickerNormal"}, opts={}},
     { "dhruvasagar/vim-table-mode", ft = "markdown" },
     { "jmbuhr/otter.nvim",          ft = "markdown" },
-    { 'nvim-pack/nvim-spectre' },
+    { 'nvim-pack/nvim-spectre',     cmd = "Spectre" },
     {
         "epwalsh/obsidian.nvim",
         version = "*",
@@ -186,19 +197,18 @@ return {
     {
         "Eandrju/cellular-automaton.nvim",
         cmd = "CellularAutomaton",
-        event = "VeryLazy",
         keys = {
             { "<leader>mir", "<cmd>CellularAutomaton make_it_rain<CR>" } }
     },
     { 'kylechui/nvim-surround', event = "VeryLazy", opts = { keymaps = { visual = "Y", visual_line = "gY", }, }, },
-    {
-        "NvChad/nvim-colorizer.lua",
-        config = function()
-            require("colorizer").setup { user_default_options = {
-                mode = "virtualtext" } }
-        end,
-        event = "VeryLazy",
-    },
+    -- {
+    --     "NvChad/nvim-colorizer.lua",
+    --     config = function()
+    --         require("colorizer").setup { user_default_options = {
+    --             mode = "virtualtext" } }
+    --     end,
+    --     event = "VeryLazy",
+    -- },
     -- {
     --     "max397574/colortils.nvim",
     --     cmd = "Colortils",
@@ -208,8 +218,6 @@ return {
     -- }
     -- {
     --     "tzachar/local-highlight.nvim",
-    --     config = function()
-    --         require('local-highlight').setup()
-    --     end
+    --     opts = {}
     -- }
 }

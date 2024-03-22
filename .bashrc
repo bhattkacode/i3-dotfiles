@@ -2,6 +2,8 @@
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
+alias dsa='nvim ~/notes/tech/dsaRoadmap.md'
+alias dsaq='nvim ~/notes/tech/dsaq.md +"set nowrap | TableModeToggle"'
 alias nl='notesync && LBsync.sh'
 alias nvn='cd ~/notes && nv -c "Telescope find_files"'
 alias notesync='cd ~/notes && git add . && git commit -m "vault backup" && git push'
@@ -17,6 +19,7 @@ alias todon="nvim ~/notes/todo.md"
 alias pcon="ssh u0_a251@192.168.0.199 -p8022 -L 9901:localhost:5901"
 alias vncv="vncviewer localhost:9901"
 alias ttoggle="xinput --list-props 13 | grep 'Device Enabled' | cut -f2 -d ':' | xargs -I {} bash -c 'if [ {} -eq 0 ]; then xinput --enable 13; else xinput --disable 13; fi'"
+alias tstog="xinput --list-props 10 | grep 'Device Enabled' | cut -f2 -d ':' | xargs -I {} bash -c 'if [ {} -eq 0 ]; then xinput --enable 10; else xinput --disable 10; fi'"
 alias tk="tmux kill-session"
 alias xsc="xclip -sel c"
 adbw () { adb connect 192.168.0.194:$(nmap 192.168.0.197 -p 30000-49999 | awk '/\/tcp/' | cut -d/ -f1); }
