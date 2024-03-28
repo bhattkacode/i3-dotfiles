@@ -2,9 +2,11 @@
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
+
+alias nl='nvim ~/leet.cpp +"lua vim.diagnostic.disable(0)" +"lua require(\"cmp\").setup.buffer{enabled=false}" +":,%d _"'
 alias dsa='nvim ~/notes/tech/dsaRoadmap.md'
-alias dsaq='nvim ~/notes/tech/dsaq.md +"set nowrap | TableModeToggle"'
-alias nl='notesync && LBsync.sh'
+# alias dsaq='nvim ~/notes/tech/dsaq.md +"set nowrap | TableModeToggle"'
+alias ln='LBsync.sh && notesync'
 alias nvn='cd ~/notes && nv -c "Telescope find_files"'
 alias notesync='cd ~/notes && git add . && git commit -m "vault backup" && git push'
 alias unimatrix='unimatrix -n -s 96 -l o'
@@ -22,6 +24,15 @@ alias ttoggle="xinput --list-props 13 | grep 'Device Enabled' | cut -f2 -d ':' |
 alias tstog="xinput --list-props 10 | grep 'Device Enabled' | cut -f2 -d ':' | xargs -I {} bash -c 'if [ {} -eq 0 ]; then xinput --enable 10; else xinput --disable 10; fi'"
 alias tk="tmux kill-session"
 alias xsc="xclip -sel c"
+
+q () {
+    if [[ $1 == "see" ]]; then
+        nvim ~/notes/tech/dsaq.md +"set nowrap | TableModeToggle"
+    else
+        nvim ~/notes/tech/dsaq.md
+    fi
+}
+
 adbw () { adb connect 192.168.0.194:$(nmap 192.168.0.197 -p 30000-49999 | awk '/\/tcp/' | cut -d/ -f1); }
 
 PS1='\[\e[0;96m\]\W \[\e[0;1;91m\]>\[\e[0;1;38;5;118m\]> \[\e[0m\]'

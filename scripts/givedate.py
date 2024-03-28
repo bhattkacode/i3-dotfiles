@@ -12,6 +12,7 @@ dates = {
     # "03-27": "Mock 4",
     # "03-30": "Mock 5",
     "04-02": "CS",
+    "04-08": "CS",
 }
 
 current_date = datetime.datetime.now()

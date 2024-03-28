@@ -36,7 +36,7 @@ exec --no-startup-id slock
 exec --no-startup-id nm-applet
 
 #Set Desktop Wallpaper
-exec_always --no-startup-id feh --bg-fill --randomize wallpapers/
+exec --no-startup-id feh --bg-fill --randomize wallpapers/
 bindsym $mod + F6 exec feh --bg-fill --randomize wallpapers/
 
 
@@ -307,7 +307,10 @@ bindsym $mod+n exec --no-startup-id maim --hidecursor -i $(xdotool getactivewind
 bindsym Mod4+n exec --no-startup-id maim --hidecursor -i $(xdotool getactivewindow) "/home/$USER/Pictures/$(date '+%H_%M_%S').png" && notify-send -t 1000 "Window SS Saved"
 
 bindsym $mod+Shift+Print exec --no-startup-id maim --select --hidecursor "/home/$USER/Pictures/$(date "+%d_%b_%r").png"
+
 bindsym $mod+o exec maim -s | tesseract stdin - | xclip -in -selection clipboard && notify-send "Copied Text" "$(xclip -out -selection clipboard | tr '\n' ' ')"
+
+bindsym $mod+p exec gpick -so | tr -d '\n' | xclip -sel c && notify-send "Copied Text" "$(xclip -out -selection clipboard)" -t 1500
 # Mode for launching frequently used configs
 bindsym $mod+c mode "(c)onfig (i)3config (n)vim (l)inuxbkup i3(b)locks (s)cripts bash(r)c (o)ldfiles"
 mode "(c)onfig (i)3config (n)vim (l)inuxbkup i3(b)locks (s)cripts bash(r)c (o)ldfiles"{
@@ -377,7 +380,7 @@ exec_always --no-startup-id "sh -c 'sleep 1; exec pkill -RTMIN+10 i3blocks'"
 exec --no-startup-id thorium-browser
 # exec nvim ~/.config/nvim/init.lua +q
 # exec sleep 15;~/scripts/nscratch.sh 1 && ~/scripts/nscratch.sh 1 ;sleep 2;tmux send-keys -t drop1 "nvim ~/notes/todo.md -c 'norm j<C-d>' -c 'Telescope oldfiles' -c 'q" Enter
-exec sleep 20;~/scripts/nscratch.sh 1 && ~/scripts/nscratch.sh 1 ;sleep 2;tmux send-keys -t drop1 "nvim ~/notes/todo.md +'norm 5j2k' +'Telescope oldfiles'" Enter && sleep 40;tmux send-keys -t drop1 "h" Escape "h" Escape ":q" Enter "clear" Enter && sleep 3;tmux send-keys -t drop1 "clear" Enter
+exec sleep 20;~/scripts/nscratch.sh 1 && ~/scripts/nscratch.sh 1 ;sleep 2;tmux send-keys -t drop1 "nvim ~/notes/todo.md +'norm 5j2k' +'Telescope oldfiles'" Enter && sleep 40;tmux send-keys -t drop1 "h" Escape "h" Escape ":q" Enter
 # exec --no-startup-id i3-msg 'workspace 2; exec /usr/bin/firefox; workspace 1'
 # exec --no-startup-id easyeffects --gapplication-service
 exec --no-startup-id blugon

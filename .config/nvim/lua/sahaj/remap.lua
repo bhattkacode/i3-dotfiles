@@ -6,9 +6,18 @@ local keymap = vim.keymap
 -- keymap.set("n", "<leader>bt", ":let g:buftabline_show= !g:buftabline_show|call buftabline#update(0)<CR>",
 --     { silent = true })
 -- keymap.set("n", "<leader>bd", ":bdelete<CR>", { silent = true })
+--
+keymap.set("n", "<leader>2",
+    ":%y<CR>:!xdotool key alt+space; sleep 0.1; xdotool mousemove 1324 238 click 1; sleep 0.1; xdotool key ctrl+a; sleep 0.1; xdotool key ctrl+v; sleep 0.1; xdotool key ctrl+apostrophe<CR>")
+keymap.set("n", "<leader>1",
+    ":%y<CR>:!xdotool key alt+space; sleep 0.1; xdotool mousemove 1324 238 click 1; sleep 0.1; xdotool key ctrl+a; sleep 0.1; xdotool key ctrl+v; sleep 0.1<CR>")
+
+keymap.set("n", "<leader>3",
+    ":!xdotool mousemove 1324 238 click 1; sleep 0.1; xdotool key ctrl+a; sleep 0.1; xdotool key ctrl+c; sleep 0.1; xdotool key alt+space; sleep 0.1; xdotool key enter; sleep 0.1; xdotool key p<CR>")
 keymap.set("n", "H", ":bprev<CR>", { silent = true })
 keymap.set("n", "L", ":bnext<CR>", { silent = true })
 
+keymap.set({ "n", "v" }, "<tab>", "%")
 
 keymap.set("i", "<C-b>", "<esc>pi")
 

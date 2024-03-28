@@ -2,8 +2,8 @@
 
 destination_dir="/media/data/Linux_Backup/dotfiles/"
 
-echo -n "Deleting $destination_dir (enter/ctrl+c)"
-read
+# echo -n "Deleting $destination_dir (enter/ctrl+c)"
+# read
 # rm -rf $destination_dir
 # mkdir -p $destination_dir
 

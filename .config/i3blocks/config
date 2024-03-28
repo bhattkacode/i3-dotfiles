@@ -6,7 +6,7 @@ separator_block_width=10
 
 [todo]
 color=#f9e2af
-command= ~/scripts/todoOutput.sh
+command= echo "$(grep '-' ~/notes/todo.md | head -1)    "
 interval=1
 
 

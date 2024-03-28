@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-output_chars=41
+output_chars=39
 
 transformStr() {
   local input_string="$1"
@@ -20,7 +20,7 @@ if [[ "$1" == "output" ]];then
     output=$(tmux capture-pane -pt drop"$lastsess":.1 | awk '/./{line=$0} END{print line}')
 
     # Dont give terminal output when window active, or no command, or in neovim
-    if [[ $(xprop -id $(xdotool getactivewindow) | grep WM_CLASS | cut -d '"' -f4) == drop$lastsess ]] || [[ "$output" == *">>"* ]] || [[ "$output" == *"{.}"* ]]|| [[ "$output" == *"written"* ]]|| [[ "$output" == *"   ["*"/"*"]" ]] || [[ "$output" == *","*"-"*"All" ]]; then
+    if [[ $(xprop -id $(xdotool getactivewindow) | grep WM_CLASS | cut -d '"' -f4) == drop$lastsess ]] || [[ "$output" == *">>"* ]] || [[ "$output" == *"{.}"* ]]|| [[ "$output" == *"written"* ]]|| [[ "$output" == *"   ["*"/"*"]" ]] || [[ "$output" == *","*"-"*"All" ]] || [[ "$output" == *"lines yanked" ]]; then
         python3 /home/sahaj/scripts/givedate.py
     else
         transformStr "$output" $output_chars
