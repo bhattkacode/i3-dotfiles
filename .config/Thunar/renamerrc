@@ -1,0 +1,16 @@
+[Configuration]
+LastActiveMode=THUNAR_RENAMER_MODE_EXTENSION
+LastActiveRenamer=ThunarSbrReplaceRenamer
+
+[ThunarSbrNumberRenamer]
+TextMode=THUNAR_SBR_TEXT_MODE_TN
+Text=
+Mode=THUNAR_SBR_NUMBER_MODE_123
+Start=1
+
+[ThunarSbrReplaceRenamer]
+CaseSensitive=FALSE
+Replacement=md
+Pattern=txt
+Regexp=FALSE
+

@@ -22,7 +22,7 @@ file_list=(
     "$HOME/.config/dunst/"
     "$HOME/.config/rofi/"
     "$HOME/.config/nvim/"
-    "$HOME/.config/Thunar/uca.xml"
+    "$HOME/.config/Thunar"
     "$HOME/.config/tmux/tmux.conf"
     "$HOME/.config/btop/btop.conf"
     "$HOME/wallpapers/"

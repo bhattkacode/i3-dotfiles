@@ -25,6 +25,7 @@ alias tstog="xinput --list-props 10 | grep 'Device Enabled' | cut -f2 -d ':' | x
 alias tk="tmux kill-session"
 alias xsc="xclip -sel c"
 
+pic () { scp -P 8022 192.168.0.195:/data/data/com.termux/files/home/$1 ~/; sxiv $1; }
 q () {
     if [[ $1 == "see" ]]; then
         nvim ~/notes/tech/dsaq.md +"set nowrap | TableModeToggle"

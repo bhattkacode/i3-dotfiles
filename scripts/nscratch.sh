@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-output_chars=39
+output_chars=41
 
 transformStr() {
   local input_string="$1"
@@ -30,14 +30,14 @@ elif [[ "$(xprop -id $(xdotool getactivewindow) | grep WM_CLASS | cut -d '"' -f4
 else
     echo "$1">/tmp/lastscratch.tmp
     if xdotool search --class "drop$1" >/dev/null;then
-        i3-msg [class="drop$1"] move container to workspace current,focus,move position center
+        i3-msg "[class="drop$1"] move container to workspace current,focus,move position center"
     else
         st -c "drop$1" -e tmux new-session -A -s "drop$1" & disown
         while true; do
             if xdotool search --class "drop$1" >/dev/null; then
-                i3-msg [class="drop$1"] floating enable
-                i3-msg [class="drop$1"] resize set 950 600
-                i3-msg [class="drop$1"] move position center
+                i3-msg "[class="drop$1"] floating enable  "
+                i3-msg "[class="drop$1"] resize set 950 600"
+                i3-msg "[class="drop$1"] move position center"
                 break
             fi
         done
