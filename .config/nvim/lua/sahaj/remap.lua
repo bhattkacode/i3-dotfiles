@@ -7,6 +7,8 @@ local keymap = vim.keymap
 --     { silent = true })
 -- keymap.set("n", "<leader>bd", ":bdelete<CR>", { silent = true })
 --
+keymap.set('n', '<leader>w', ':silent! noautocmd w<CR>', { noremap = true, silent = true })
+
 keymap.set("n", "<leader>2",
     ":%y<CR>:!xdotool key alt+space; sleep 0.1; xdotool mousemove 1324 238 click 1; sleep 0.1; xdotool key ctrl+a; sleep 0.1; xdotool key ctrl+v; sleep 0.1; xdotool key ctrl+apostrophe<CR>")
 keymap.set("n", "<leader>1",

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-output_chars=41
+output_chars=45
 
 transformStr() {
   local input_string="$1"
@@ -20,8 +20,9 @@ if [[ "$1" == "output" ]];then
     output=$(tmux capture-pane -pt drop"$lastsess":.1 | awk '/./{line=$0} END{print line}')
 
     # Dont give terminal output when window active, or no command, or in neovim
-    if [[ $(xprop -id $(xdotool getactivewindow) | grep WM_CLASS | cut -d '"' -f4) == drop$lastsess ]] || [[ "$output" == *">>"* ]] || [[ "$output" == *"{.}"* ]]|| [[ "$output" == *"written"* ]]|| [[ "$output" == *"   ["*"/"*"]" ]] || [[ "$output" == *","*"-"*"All" ]] || [[ "$output" == *"lines yanked" ]]; then
-        python3 /home/sahaj/scripts/givedate.py
+    if [[ $(xprop -id $(xdotool getactivewindow) | grep WM_CLASS | cut -d '"' -f4) == drop$lastsess ]] || [[ "$output" == *">>"* ]] || [[ "$output" == *"{.}"* ]]|| [[ "$output" == *"written"* ]] || [[ "$output" == *"   ["*"/"*"]" ]] || [[ "$output" == *","*"-"*"All" ]] || [[ "$output" == *"lines yanked" ]]; then
+        # echo "$(printf '%*s' $output_chars)"
+        transformStr "$(grep '-' ~/notes/todo.md | head -1)    " $output_chars
     else
         transformStr "$output" $output_chars
     fi

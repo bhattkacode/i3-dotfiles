@@ -3,6 +3,9 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+alias ssp='ssh 192.168.0.195 -p 8022'
+alias ssmp='ssh 192.168.0.199 -p 8022'
+alias ssn='ssh 0.tcp.in.ngrok.io -p '
 alias nl='nvim ~/leet.cpp +"lua vim.diagnostic.disable(0)" +"lua require(\"cmp\").setup.buffer{enabled=false}" +":,%d _"'
 alias dsa='nvim ~/notes/tech/dsaRoadmap.md'
 # alias dsaq='nvim ~/notes/tech/dsaq.md +"set nowrap | TableModeToggle"'
