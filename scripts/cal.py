@@ -62,5 +62,5 @@ def display_current_events():
             summary = current_event[0]['summary']
             print(f"<big><span color='{blue}'>󰃰 </span><span font='Aquire'>{summary}</span> [<span color='{blue}'>{start_time}</span>-<span color='{blue}'>{end_time}</span>]</big>" + " " * padding)
             return  # remove if more than one event
-    print(f"<big><span color='{blue}'>󰃰 </span>Nothing to do rn</big>" * padding)
+    print(f"<big><span color='{blue}'>󰃰 </span>Nothing to do rn</big>" + " "* padding)
 display_current_events()

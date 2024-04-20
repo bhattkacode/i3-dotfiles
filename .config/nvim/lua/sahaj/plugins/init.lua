@@ -1,6 +1,7 @@
 return {
 
     -- { 'j-hui/fidget.nvim',                         config = function() require('fidget').setup({ window = { winblend = 0 } }) end },
+    "mg979/vim-visual-multi",
     {
         "kawre/leetcode.nvim",
         build = ":TSUpdate html",

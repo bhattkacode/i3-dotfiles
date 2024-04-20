@@ -250,6 +250,8 @@ default_border pixel 1
 
 # Set any keybinding:
 # bindsym $mod+shift+x exec i3lock --color=#111111 --show-failed-attempts --nofork
+bindsym $mod+i exec xdotool mousemove 594 603 click 1 mousemove 798 386 click 1 mousemove 547 638 click 1
+bindsym $mod+Shift+i exec xdotool mousemove 594 603 click 1 mousemove 798 386 click 1 mousemove 621 385 click 1 mousemove 547 638 click 1 
 bindsym --release $mod+shift+x exec --no-startup-id slock
 bindsym $mod+Tab workspace back_and_forth
 bindsym $mod+Shift+P exec killall picom 
