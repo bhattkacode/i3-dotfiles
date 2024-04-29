@@ -28,8 +28,8 @@ file_list=(
     "$HOME/.config/btop/btop.conf"
     "$HOME/wallpapers/"
     "$HOME/README.md"
+    # "$HOME/Docs/"
     # "$HOME/notes/"
-    # "$HOME/notes/guides/"
     # "$HOME/ebooks"
 )
 
