@@ -3,6 +3,7 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+alias xsr='xset r rate 220 42'
 alias ssp='ssh 192.168.0.195 -p 8022'
 alias ssmp='ssh 192.168.0.199 -p 8022'
 alias ssn='ssh 0.tcp.in.ngrok.io -p '
